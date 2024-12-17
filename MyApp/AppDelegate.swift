@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SenyumkuConfig.default.configure(
             fontName: "muli_light",
             fontNameBold: "muli-bold",
-            clientId: "stg-investree-lender-ios",
-            clientSecret: "94jmp4ypGic7lE6jovJfANdz09C09pGL",
+            clientId: "secret",
+            clientSecret: "secret",
             window: window,
             integrationEnv: .test,
-            widgetKey: "1gZWQYd3Ci"
+            widgetKey: "secret"
         )
         return true
     }
