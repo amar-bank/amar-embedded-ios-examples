@@ -1,0 +1,11 @@
+framework module SenyumkuKit {
+  umbrella header "SenyumkuKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module SenyumkuKit.Swift {
+  header "SenyumkuKit-Swift.h"
+  requires objc
+}

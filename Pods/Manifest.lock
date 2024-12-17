@@ -1,0 +1,22 @@
+PODS:
+  - SenyumkuKit (1.1.19)
+
+DEPENDENCIES:
+  - SenyumkuKit (from `https://bitbucket.org/tunaiku/ios-podspec`, tag `1.1.19-beta2`)
+
+EXTERNAL SOURCES:
+  SenyumkuKit:
+    :git: https://bitbucket.org/tunaiku/ios-podspec
+    :tag: 1.1.19-beta2
+
+CHECKOUT OPTIONS:
+  SenyumkuKit:
+    :git: https://bitbucket.org/tunaiku/ios-podspec
+    :tag: 1.1.19-beta2
+
+SPEC CHECKSUMS:
+  SenyumkuKit: d8de2d0e2af0845e292bc108b6802d400256dff7
+
+PODFILE CHECKSUM: 6cdcf4ed5c2f2ff358b4265eb97c971809912fcc
+
+COCOAPODS: 1.16.2

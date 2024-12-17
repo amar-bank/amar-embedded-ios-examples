@@ -1,0 +1,26 @@
+{
+  "name": "SenyumkuKit",
+  "version": "1.1.19",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "summary": "embedded banking Amar Bank",
+  "description": "embedded banking Amar Bank version 1.1.19",
+  "homepage": "https://senyumku.com",
+  "documentation_url": "https://senyumku.com",
+  "swift_versions": "5.0",
+  "license": {
+    "type": "Commercial",
+    "text": "https://senyumku.com"
+  },
+  "authors": {
+    "Helmi Taufiq": "helmi.alhakim@amarbank.co.id"
+  },
+  "source": {
+    "http": "https://bitbucket.org/tunaiku/embedded-banking-ios-sdk/downloads/SenyumkuKit.xcframework.zip"
+  },
+  "ios": {
+    "vendored_frameworks": "SenyumkuKit.xcframework"
+  },
+  "swift_version": "5.0"
+}

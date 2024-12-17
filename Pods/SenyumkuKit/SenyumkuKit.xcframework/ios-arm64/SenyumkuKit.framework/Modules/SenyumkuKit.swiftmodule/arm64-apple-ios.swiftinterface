@@ -1,0 +1,100 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SenyumkuKit
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import CommonCrypto
+import CoreGraphics
+import CoreLocation
+import CoreText
+import DeveloperToolsSupport
+import EventKit
+import Foundation
+import Photos
+@_exported import SenyumkuKit
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum PayLaterState {
+  case active(amount: Swift.Int)
+  case preActive
+  case notEligible
+  case unauthorized
+  case error(message: Swift.String)
+  case loading
+  case inProgress
+}
+public struct EmbeddedFinance {
+  public static func goToLoanSimulation(amount: Swift.Int, caller: UIKit.UIViewController)
+  public func checkState(responses: @escaping (_ state: SenyumkuKit.PayLaterState) -> Swift.Void)
+}
+public protocol PayLaterDelegate {
+  func payLaterSubmit(success: Swift.Bool)
+}
+public enum Environment : Swift.Int {
+  case test
+  case live
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class SenyumkuConfig {
+  public static let `default`: SenyumkuKit.SenyumkuConfig
+  public func configure(fontName: Swift.String, fontNameBold: Swift.String, clientId: Swift.String, clientSecret: Swift.String, window: UIKit.UIWindow?, integrationEnv: SenyumkuKit.Environment, widgetKey: Swift.String)
+  @objc deinit
+}
+extension UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public var senyumkuWidget: any SenyumkuKit.SenyumkuWidget {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var senyumkuSdk: any SenyumkuKit.SenyumkuSdk {
+    get
+  }
+}
+public protocol SenyumkuSdk {
+  func directToLogin(caller: UIKit.UIViewController, userIdentifier: Swift.String?, idCardNumber: Swift.String?, firstLoginIdenfier: Swift.String?, delegate: (any SenyumkuKit.DirectLoginDelegate)?)
+}
+extension UIKit.UIViewController : SenyumkuKit.SenyumkuSdk {
+  @_Concurrency.MainActor(unsafe) public func directToLogin(caller: UIKit.UIViewController, userIdentifier: Swift.String?, idCardNumber: Swift.String?, firstLoginIdenfier: Swift.String?, delegate: (any SenyumkuKit.DirectLoginDelegate)?)
+}
+public protocol SenyumkuAnalytics {
+  func logEvent(_ name: Swift.String, parameters: [Swift.String : Any]?)
+}
+public protocol BalanceInquiryDelegate {
+  func showResult(saldo: Swift.String?)
+}
+public protocol DirectDebitDelegate {
+  func showResult(isSuccess: Swift.Bool, additionalInfo: [Swift.String : Any]?)
+}
+public protocol DirectLoginDelegate {
+  func showResult(isSuccess: Swift.Bool)
+}
+public struct SenyumkuWidgetDataView {
+  public init(email: Swift.String, phoneNumber: Swift.String, userIdentifier: Swift.String, idCardNumber: Swift.String, firstLoginIdenfier: Swift.String?, bgNotRegisteredWidget: UIKit.UIImage?, bgMainWidget: UIKit.UIImage?, bgRejectedWidget: UIKit.UIImage?, hexColor1: Swift.String, hexColor2: Swift.String, hexColor3: Swift.String, hexColor4: Swift.String, hexColor5: Swift.String, hexColor6: Swift.String)
+}
+public protocol SenyumkuWidget {
+  func show(in container: UIKit.UIView, data: SenyumkuKit.SenyumkuWidgetDataView, senyumkuAnalytics: (any SenyumkuKit.SenyumkuAnalytics)?)
+  func logoutSenyumku()
+  func showDirectDebit(caller: UIKit.UIViewController, payment: Swift.Double, additionalInfo: [Swift.String : Any]?, delegate: (any SenyumkuKit.DirectDebitDelegate)?)
+  func showBiFastDirectDebit(caller: UIKit.UIViewController, payment: Swift.Double, additionalInfo: [Swift.String : Any]?, accountStatementInfo: Swift.String?, delegate: (any SenyumkuKit.DirectDebitDelegate)?)
+  func showBalanceInquiry(userIdentifer: Swift.String, caller: UIKit.UIViewController, delegate: (any SenyumkuKit.BalanceInquiryDelegate)?)
+}
+extension UIKit.UIViewController : SenyumkuKit.SenyumkuWidget {
+  @_Concurrency.MainActor(unsafe) public func show(in container: UIKit.UIView, data: SenyumkuKit.SenyumkuWidgetDataView, senyumkuAnalytics: (any SenyumkuKit.SenyumkuAnalytics)?)
+  @_Concurrency.MainActor(unsafe) public func logoutSenyumku()
+  @_Concurrency.MainActor(unsafe) public func showBalanceInquiry(userIdentifer: Swift.String, caller: UIKit.UIViewController, delegate: (any SenyumkuKit.BalanceInquiryDelegate)?)
+  @_Concurrency.MainActor(unsafe) public func showDirectDebit(caller: UIKit.UIViewController, payment: Swift.Double, additionalInfo: [Swift.String : Any]?, delegate: (any SenyumkuKit.DirectDebitDelegate)?)
+  @_Concurrency.MainActor(unsafe) public func showBiFastDirectDebit(caller: UIKit.UIViewController, payment: Swift.Double, additionalInfo: [Swift.String : Any]?, accountStatementInfo: Swift.String?, delegate: (any SenyumkuKit.DirectDebitDelegate)?)
+}
+extension UIKit.UIColor {
+  convenience public init?(hexString: Swift.String)
+}
+extension SenyumkuKit.Environment : Swift.Equatable {}
+extension SenyumkuKit.Environment : Swift.Hashable {}
+extension SenyumkuKit.Environment : Swift.RawRepresentable {}
